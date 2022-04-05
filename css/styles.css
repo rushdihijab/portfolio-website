@@ -1,0 +1,289 @@
+:root {
+  --primary-color: #357b70;
+  --secondary-color: #e0b354;
+  --dark-grey: #2b2b2b;
+  --white: white;
+  --black: black;
+  --background-color: #ED8A23;
+}
+
+
+body {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px
+}
+
+
+/* sets the font size to 16px and sets the line-height to 1.6*/
+
+
+/*font-weight: bold;
+font-style: italic;
+font-variant: small-caps;*/
+
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+a {
+    color: var(--white);
+}
+
+a:visited {
+    /* visited link first then a;hover after 05676e*/
+    color: var(--white);
+}
+
+a:hover,
+a:focus {
+    /* No underlining when hovering over a link */
+    text-decoration: none;
+}
+
+a:active {
+    /* selected link #489c79*/
+    color: var(--white);
+}
+
+input,
+texture,
+select,
+button {
+    font-family: system;
+}
+
+.button, button {
+    /* overwrites browser defaults and resets the border */
+    border: none;
+    display: inline-block;
+    /* takes the font from the outer container */
+    font-family: inherit;
+    /* styles the background color, font color, and text decoration (underline, etc.) of the button */
+    background-color: var(--dark-grey);
+    color: var(--white);
+    text-decoration: none;
+    /*adds spacing to the button (this will be discussed more in-depth later) */
+    padding: 10px;
+    border-radius: 3px;
+    /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
+    border-bottom: 2px black solid;
+    transition-duration: 0.2s;
+    transition-property: opacity
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+    /* lets the mouse appear as a hand when hovering over the button */
+    cursor: pointer;
+    /* reduces the opacity of the button to 80% */
+    opacity: 0.8;
+}
+
+.button__secondary {
+    background-color: var(background-color);
+    color: #3D5954;
+}
+.profile{
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  list-style-type: none;
+}
+
+.about-list{
+  text-align: center;
+
+
+}
+
+.profile__portrait {
+  margin-right: 40px;
+  border-radius: 50%;
+  float: left;
+  width: 300px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.page-header {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    border-bottom:1px black solid;
+}
+
+
+.page-header__item {
+  width: 90px;
+    flex: 0 1 100px;
+    border-radius: 50% ;
+    background-color: var(--background-color);
+}
+
+.page-header__item:last-child {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.navigation-list {
+    list-style-type: none;
+}
+
+
+.navigation-list li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+
+
+.navigation-list__item {
+  text-decoration: none;
+  padding: 5px;
+  position: relative;
+}
+
+.navigation-list__item:before,
+.navigation-list__item:after {
+  position: absolute;
+  opacity: 0;
+  content: "";
+  background: var(--black);
+  transition: .2s;
+}
+
+.navigation-list__item:before {
+  width: 2px;
+  height: 2px;
+  right: 2%;
+  bottom:  5%;
+}
+
+.navigation-list__item:after {
+  width: auto;
+  height: 0px;
+  right: 0%;
+  top: 0%;
+}
+
+.navigation-list__item:hover:before,
+.navigation-list__item:hover:after {
+  opacity: 2;
+}
+
+.navigation-list__item:hover:before {
+  width: 100%;
+}
+
+
+.grid__item, .table-experience {
+  background-color: lightgray;
+  border: 2px black solid;
+  padding: 10px
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+
+}
+.grid__item:last-child {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size:22px;
+  }
+}
+
+@keyframes color {
+  0% {
+    fill: #edc655;
+  }
+  50% {
+    fill: #fcffad;
+  }
+  100% {
+    fill: #f76414;
+  }
+
+}
+.sun {
+  animation-duration: 4s;
+  animation-name: color ;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+@keyframes  move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+.cloud-front {
+  animation-duration: 30s;
+  animation-name: move ;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+.cloud-back {
+  animation: 34s move infinite alternate linear;
+}
